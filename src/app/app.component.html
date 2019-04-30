@@ -1,21 +1,47 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <select (change)="showTransaction($event.target.value)">
+        <option *ngFor="let trans of transactions" value={{trans.id}}>
+          {{trans.transactionId}}
+        </option>
+      </select>
 
-<router-outlet></router-outlet>
+
+      <!-- Table to output data -->
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>TransactionID</th>
+          <th>Recipient Count</th>
+          <th>Delivered Count</th>
+          <th>Delivery Rate</th>
+          <th>Opened Count</th>
+          <th>Clicked Count</th>
+          <th>Bounce Count</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>{{ transaction.id }}</td>
+          <td>{{ transaction.transactionId }}</td>
+          <td>{{ transaction.recipientcount }}</td>
+          <td>{{ transaction.deliveredcount }}</td>
+          <td>{{ (transaction.deliveredcount/transaction.recipientcount)*100 }}%</td>
+          <td>{{ transaction.openedcount }}</td>
+          <td>{{ transaction.clickedcount }}</td>
+          <td>{{ transaction.bouncecount }}</td>
+        </tr>
+
+        </tbody>
+      </table>
+
+      <hr />
+
+      <!-- Form to add data -->
+
+
+    </div>
+  </div>
+</div>
