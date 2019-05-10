@@ -30,14 +30,13 @@
           <td>{{ transaction.transactionId }}</td>
           <td>{{ transaction.recipientcount }}</td>
           <td>{{ transaction.deliveredcount }}</td>
-          <td>{{ (transaction.deliveredcount/transaction.recipientcount)*100 }}%</td>
-          <td>{{ transaction.openedcount }}</td>
+          <td>{{ (transaction.deliveredcount * 100 / transaction.recipientcount).toFixed(1) }}%</td>
+          <td><a href="" onclick="openModal()">{{ transaction.openedcount }}</a></td>
           <td>{{ transaction.clickedcount }}</td>
           <td>{{ transaction.bouncecount }}</td>
           <td>{{ transaction.unsubscribedcount }}</td>
           <td>{{ transaction.abusereportscount }}</td>
         </tr>
-
         </tbody>
       </table>
 

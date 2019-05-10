@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <select (change)="showTransaction($event.target.value)">
+        <option *ngFor="let trans of transactions" value={{trans.id}}>
+          {{trans.transactionId}}
+        </option>
+      </select>
+
+
+      <!-- Table to output data -->
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>TransactionID</th>
+          <th>Recipient Count</th>
+          <th>Delivered Count</th>
+          <th>Delivery Rate</th>
+          <th>Opened Count</th>
+          <th>Clicked Count</th>
+          <th>Bounce Count</th>
+          <th>Unsubscribed Count</th>
+          <th>Abuse Reports Count</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>{{ transaction.id }}</td>
+          <td>{{ transaction.transactionId }}</td>
+          <td>{{ transaction.recipientcount }}</td>
+          <td>{{ transaction.deliveredcount }}</td>
+          <td>{{ (transaction.deliveredcount/transaction.recipientcount)*100 }}%</td>
+          <td>{{ transaction.openedcount }}</td>
+          <td>{{ transaction.clickedcount }}</td>
+          <td>{{ transaction.bouncecount }}</td>
+          <td>{{ transaction.unsubscribedcount }}</td>
+          <td>{{ transaction.abusereportscount }}</td>
+        </tr>
+
+        </tbody>
+      </table>
+
+      <hr />
+
+      <!-- Form to add data -->
+
+
+    </div>
+  </div>
+</div>

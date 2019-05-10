@@ -10,14 +10,13 @@ export class EETransactionStatusComponent implements OnInit {
   id: string;
   transactionId: string;
   recipientcount: number;
-  submittedcount: number;
   deliveredcount: number;
   openedcount: number;
   clickedcount: number;
   unsubscribedcount: number;
   abusereportscount: number;
   bouncecount: number;
-  deliveryrate: number;
+  openers: any;
 
 
 

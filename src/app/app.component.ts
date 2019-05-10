@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   transactions: any;
 
 
+
   constructor(private http: HttpClient) {
     this.getTransactions();
   }
@@ -24,16 +25,14 @@ export class AppComponent implements OnInit {
 
 
 
-  getTransactions() {
+ getTransactions() {
     return this.http.get('http://127.0.0.1:8000/api/transactions').subscribe(transactions => {
-      //console.log(transactions['success']['data']);
       this.transactions = transactions['success']['data'];
     });
   }
 
   showTransaction(id) {
     return this.http.get('http://127.0.0.1:8000/api/transactions/' + id).subscribe(transaction => {
-      console.log(transaction);
       this.transaction = transaction['success'];
     });
   }

@@ -9,7 +9,7 @@ import { EETransactionStatusComponent } from './eetransaction-status/eetransacti
 @NgModule({
   declarations: [
     AppComponent,
-    EETransactionStatusComponent
+    EETransactionStatusComponent,
   ],
   imports: [
     BrowserModule,
