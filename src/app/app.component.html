@@ -1,44 +1,80 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <select (change)="showTransaction($event.target.value)">
-        <option *ngFor="let trans of transactions" value={{trans.id}}>
-          {{trans.transactionId}}
+      <select (change)="getDateStatistics($event.target.value)">
+        <!--<option *ngFor="let trans of transactions" value={{trans.id}}>-->
+          <!--{{trans.transactionId}}-->
+        <!--</option>-->
+      <!--</select>-->
+
+      <!--<select>-->
+        <option *ngFor="let ssDate of ssDates" value={{ssDate.dates}}>
+          {{ssDate.dates}}
         </option>
       </select>
-
-
-      <!-- Table to output data -->
       <table class="table table-striped">
         <thead>
-        <tr>
-          <th>ID</th>
-          <th>TransactionID</th>
-          <th>Recipient Count</th>
-          <th>Delivered Count</th>
-          <th>Delivery Rate</th>
-          <th>Opened Count</th>
-          <th>Clicked Count</th>
-          <th>Bounce Count</th>
-          <th>Unsubscribed Count</th>
-          <th>Abuse Reports Count</th>
-        </tr>
+          <tr>
+          <th>Date</th>
+          <th>Product</th>
+          <th>Emails</th>
+          <th>Shooted Volume</th>
+          <!--<th>Openers</th>-->
+          <!--<th>Openers %</th>-->
+          <!--<th>Clickers</th>-->
+          <!--<th>Clickers %</th>-->
+          <!--<th>Unsubscribed Count</th>-->
+          <!--<th>Abuse Reports Count</th>-->
+          </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>{{ transaction.id }}</td>
-          <td>{{ transaction.transactionId }}</td>
-          <td>{{ transaction.recipientcount }}</td>
-          <td>{{ transaction.deliveredcount }}</td>
-          <td>{{ (transaction.deliveredcount * 100 / transaction.recipientcount).toFixed(1) }}%</td>
-          <td><a href="" onclick="openModal()">{{ transaction.openedcount }}</a></td>
-          <td>{{ transaction.clickedcount }}</td>
-          <td>{{ transaction.bouncecount }}</td>
-          <td>{{ transaction.unsubscribedcount }}</td>
-          <td>{{ transaction.abusereportscount }}</td>
-        </tr>
+          <tr>
+          <td>{{ ssDateDetails.date }}</td>
+          <td>{{ ssDateDetails.ref_product }}</td>
+          <td>{{ ssDateDetails.email_name }}</td>
+          <td>{{ ssDateDetails.shooted_volume }}</td>
+          <!--<td>{{ (transaction.deliveredcount * 100 / transaction.recipientcount).toFixed(1) }}%</td>-->
+          <!--<td>{{ transaction.openedcount }}</td>-->
+          <!--<td>{{ transaction.clickedcount }}</td>-->
+          <!--<td>{{ transaction.bouncecount }}</td>-->
+          <!--<td>{{ transaction.unsubscribedcount }}</td>-->
+          <!--<td>{{ transaction.abusereportscount }}</td>-->
+          </tr>
         </tbody>
       </table>
+
+
+      <!--&lt;!&ndash; Table to output data &ndash;&gt;-->
+      <!--<table class="table table-striped">-->
+        <!--<thead>-->
+        <!--<tr>-->
+          <!--<th>ID</th>-->
+          <!--<th>TransactionID</th>-->
+          <!--<th>Recipient Count</th>-->
+          <!--<th>Delivered Count</th>-->
+          <!--<th>Delivery Rate</th>-->
+          <!--<th>Opened Count</th>-->
+          <!--<th>Clicked Count</th>-->
+          <!--<th>Bounce Count</th>-->
+          <!--<th>Unsubscribed Count</th>-->
+          <!--<th>Abuse Reports Count</th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+        <!--<tbody>-->
+        <!--<tr>-->
+          <!--<td>{{ transaction.id }}</td>-->
+          <!--<td>{{ transaction.transactionId }}</td>-->
+          <!--<td>{{ transaction.recipientcount }}</td>-->
+          <!--<td>{{ transaction.deliveredcount }}</td>-->
+          <!--<td>{{ (transaction.deliveredcount * 100 / transaction.recipientcount).toFixed(1) }}%</td>-->
+          <!--<td>{{ transaction.openedcount }}</td>-->
+          <!--<td>{{ transaction.clickedcount }}</td>-->
+          <!--<td>{{ transaction.bouncecount }}</td>-->
+          <!--<td>{{ transaction.unsubscribedcount }}</td>-->
+          <!--<td>{{ transaction.abusereportscount }}</td>-->
+        <!--</tr>-->
+        <!--</tbody>-->
+      <!--</table>-->
 
       <hr />
 
