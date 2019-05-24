@@ -19,26 +19,38 @@
           <th>Product</th>
           <th>Emails</th>
           <th>Shooted Volume</th>
-          <!--<th>Openers</th>-->
-          <!--<th>Openers %</th>-->
-          <!--<th>Clickers</th>-->
-          <!--<th>Clickers %</th>-->
-          <!--<th>Unsubscribed Count</th>-->
-          <!--<th>Abuse Reports Count</th>-->
+            <th>Delivered Volume</th>
+            <th>Delivery Rate</th>
+          <th>Openers</th>
+          <th>Openers %</th>
+          <th>Clickers</th>
+          <th>Clickers %</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-          <td>{{ ssDateDetails.date }}</td>
-          <td>{{ ssDateDetails.ref_product }}</td>
-          <td>{{ ssDateDetails.email_name }}</td>
-          <td>{{ ssDateDetails.shooted_volume }}</td>
-          <!--<td>{{ (transaction.deliveredcount * 100 / transaction.recipientcount).toFixed(1) }}%</td>-->
-          <!--<td>{{ transaction.openedcount }}</td>-->
-          <!--<td>{{ transaction.clickedcount }}</td>-->
-          <!--<td>{{ transaction.bouncecount }}</td>-->
-          <!--<td>{{ transaction.unsubscribedcount }}</td>-->
-          <!--<td>{{ transaction.abusereportscount }}</td>-->
+          <!--<tr>-->
+          <!--<td>{{ ssDateDetails.date }}</td>-->
+          <!--<td>{{ ssDateDetails.ref_product }}</td>-->
+          <!--<td>{{ ssDateDetails.email_name }}</td>-->
+          <!--<td>{{ ssDateDetails.shooted_volume }}</td>-->
+          <!--&lt;!&ndash;<td>{{ (transaction.deliveredcount * 100 / transaction.recipientcount).toFixed(1) }}%</td>&ndash;&gt;-->
+          <!--&lt;!&ndash;<td>{{ transaction.openedcount }}</td>&ndash;&gt;-->
+          <!--&lt;!&ndash;<td>{{ transaction.clickedcount }}</td>&ndash;&gt;-->
+          <!--&lt;!&ndash;<td>{{ transaction.bouncecount }}</td>&ndash;&gt;-->
+          <!--&lt;!&ndash;<td>{{ transaction.unsubscribedcount }}</td>&ndash;&gt;-->
+          <!--&lt;!&ndash;<td>{{ transaction.abusereportscount }}</td>&ndash;&gt;-->
+          <!--</tr>-->
+          <tr *ngFor="let ssDD of ssDateDetails">
+            <td>{{ssDD.send_date}}</td>
+            <td>{{ssDD.ref_product}}</td>
+            <td>{{ ssDD.email_name }}</td>
+            <td>{{ ssDD.shooted_volume }}</td>
+            <td>{{ ssDD.delivered_volume }}</td>
+            <td>{{ ssDD.delivered_volume/ssDD.shooted_volume*100 }}%</td>
+            <td>{{ ssDD.opener }}</td>
+            <td>{{ ssDD.opener/ssDD.delivered_volume*100 }}</td>
+            <td>{{ ssDD.clicker }}</td>
+            <td>{{ ssDD.clicker/ssDD.opener*100 }}</td>
           </tr>
         </tbody>
       </table>
@@ -83,4 +95,7 @@
 
     </div>
   </div>
+</div>
+<div>
+  <line-chart></line-chart>
 </div>
