@@ -5,20 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EETransactionStatusComponent } from './eetransaction-status/eetransaction-status.component';
 import { ShootStatisticsDatesComponent } from './shoot-statistics-dates/shoot-statistics-dates.component';
-import { LineChartComponentComponent } from './line-chart-component/line-chart-component.component';
+import { GoogleChartsModule } from 'angular-google-charts';
+import { GoogleLineChartComponent } from './google-line-chart/google-line-chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EETransactionStatusComponent,
     ShootStatisticsDatesComponent,
-    LineChartComponentComponent,
-    // LineChartComponent,
+    GoogleLineChartComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    GoogleChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,12 +2,7 @@
   <div class="row">
     <div class="col-xs-12">
       <select (change)="getDateStatistics($event.target.value)">
-        <!--<option *ngFor="let trans of transactions" value={{trans.id}}>-->
-          <!--{{trans.transactionId}}-->
-        <!--</option>-->
-      <!--</select>-->
 
-      <!--<select>-->
         <option *ngFor="let ssDate of ssDates" value={{ssDate.dates}}>
           {{ssDate.dates}}
         </option>
@@ -19,8 +14,8 @@
           <th>Product</th>
           <th>Emails</th>
           <th>Shooted Volume</th>
-            <th>Delivered Volume</th>
-            <th>Delivery Rate</th>
+          <th>Delivered Volume</th>
+          <th>Delivery Rate</th>
           <th>Openers</th>
           <th>Openers %</th>
           <th>Clickers</th>
@@ -28,18 +23,6 @@
           </tr>
         </thead>
         <tbody>
-          <!--<tr>-->
-          <!--<td>{{ ssDateDetails.date }}</td>-->
-          <!--<td>{{ ssDateDetails.ref_product }}</td>-->
-          <!--<td>{{ ssDateDetails.email_name }}</td>-->
-          <!--<td>{{ ssDateDetails.shooted_volume }}</td>-->
-          <!--&lt;!&ndash;<td>{{ (transaction.deliveredcount * 100 / transaction.recipientcount).toFixed(1) }}%</td>&ndash;&gt;-->
-          <!--&lt;!&ndash;<td>{{ transaction.openedcount }}</td>&ndash;&gt;-->
-          <!--&lt;!&ndash;<td>{{ transaction.clickedcount }}</td>&ndash;&gt;-->
-          <!--&lt;!&ndash;<td>{{ transaction.bouncecount }}</td>&ndash;&gt;-->
-          <!--&lt;!&ndash;<td>{{ transaction.unsubscribedcount }}</td>&ndash;&gt;-->
-          <!--&lt;!&ndash;<td>{{ transaction.abusereportscount }}</td>&ndash;&gt;-->
-          <!--</tr>-->
           <tr *ngFor="let ssDD of ssDateDetails">
             <td>{{ssDD.send_date}}</td>
             <td>{{ssDD.ref_product}}</td>
@@ -54,48 +37,11 @@
           </tr>
         </tbody>
       </table>
-
-
-      <!--&lt;!&ndash; Table to output data &ndash;&gt;-->
-      <!--<table class="table table-striped">-->
-        <!--<thead>-->
-        <!--<tr>-->
-          <!--<th>ID</th>-->
-          <!--<th>TransactionID</th>-->
-          <!--<th>Recipient Count</th>-->
-          <!--<th>Delivered Count</th>-->
-          <!--<th>Delivery Rate</th>-->
-          <!--<th>Opened Count</th>-->
-          <!--<th>Clicked Count</th>-->
-          <!--<th>Bounce Count</th>-->
-          <!--<th>Unsubscribed Count</th>-->
-          <!--<th>Abuse Reports Count</th>-->
-        <!--</tr>-->
-        <!--</thead>-->
-        <!--<tbody>-->
-        <!--<tr>-->
-          <!--<td>{{ transaction.id }}</td>-->
-          <!--<td>{{ transaction.transactionId }}</td>-->
-          <!--<td>{{ transaction.recipientcount }}</td>-->
-          <!--<td>{{ transaction.deliveredcount }}</td>-->
-          <!--<td>{{ (transaction.deliveredcount * 100 / transaction.recipientcount).toFixed(1) }}%</td>-->
-          <!--<td>{{ transaction.openedcount }}</td>-->
-          <!--<td>{{ transaction.clickedcount }}</td>-->
-          <!--<td>{{ transaction.bouncecount }}</td>-->
-          <!--<td>{{ transaction.unsubscribedcount }}</td>-->
-          <!--<td>{{ transaction.abusereportscount }}</td>-->
-        <!--</tr>-->
-        <!--</tbody>-->
-      <!--</table>-->
-
       <hr />
-
-      <!-- Form to add data -->
-
-
     </div>
   </div>
 </div>
+
 <div>
-  <line-chart></line-chart>
+  <app-google-line-chart>{{chart}}</app-google-line-chart>
 </div>
