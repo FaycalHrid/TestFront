@@ -1,47 +1,14 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <select (change)="getDateStatistics($event.target.value)">
-
-        <option *ngFor="let ssDate of ssDates" value={{ssDate.dates}}>
-          {{ssDate.dates}}
-        </option>
-      </select>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-          <th>Date</th>
-          <th>Product</th>
-          <th>Emails</th>
-          <th>Shooted Volume</th>
-          <th>Delivered Volume</th>
-          <th>Delivery Rate</th>
-          <th>Openers</th>
-          <th>Openers %</th>
-          <th>Clickers</th>
-          <th>Clickers %</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let ssDD of ssDateDetails">
-            <td>{{ssDD.send_date}}</td>
-            <td>{{ssDD.ref_product}}</td>
-            <td>{{ ssDD.email_name }}</td>
-            <td>{{ ssDD.shooted_volume }}</td>
-            <td>{{ ssDD.delivered_volume }}</td>
-            <td>{{ ssDD.delivered_volume/ssDD.shooted_volume*100 }}%</td>
-            <td>{{ ssDD.opener }}</td>
-            <td>{{ ssDD.opener/ssDD.delivered_volume*100 }}</td>
-            <td>{{ ssDD.clicker }}</td>
-            <td>{{ ssDD.clicker/ssDD.opener*100 }}</td>
-          </tr>
-        </tbody>
-      </table>
-      <hr />
-    </div>
-  </div>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/StatisticsDetails">Detailed View</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/StatisticsChart">Chart View</a>
+    </li>
+  </ul>
+  <router-outlet></router-outlet>
 </div>
 
-<div>
-  <app-google-line-chart>{{chart}}</app-google-line-chart>
-</div>
+
+
