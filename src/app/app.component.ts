@@ -11,7 +11,7 @@ import {ShootStatisticsDatesComponent} from './shoot-statistics-dates/shoot-stat
 
 @Injectable()
 export class AppComponent implements OnInit {
-  title = 'Angular Laravel CRUD App';
+  title = 'testfront';
 
   transaction: EETransactionStatusComponent;
   transactions: any;
