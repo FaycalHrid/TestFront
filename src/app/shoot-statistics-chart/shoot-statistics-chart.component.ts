@@ -8,20 +8,32 @@ import {HttpClient} from '@angular/common/http';
 })
 export class ShootStatisticsChartComponent implements OnInit {
 
-  private availableDates:any;
+  private availableDates: any;
 
   statByDate: any;
 
   lineChartLegend = 'Shoot Statistics';
   lineChartOptions = {
     responsive: true,
+    fill: false, elements: {
+      line: {
+        tension: 0
+      }
+    }
   };
 
   lineChartData = [
-    { data: [], label: 'Shoot' },
-    { data: [], label: 'Delivered' },
-    { data: [], label: 'Opened' },
-    { data: [], label: 'Clicked' }
+    { data: [60,20,30,52,90,60,50], label: 'Shoot' },
+    { data: [150,150,150,150,150,150,150], label: 'Delivered' },
+    { data: [510,510,501,510,510,510,510], label: 'Opened' },
+    { data: [250,520,502,520,250,520,250], label: 'Clicked' }
+  ];
+
+  lineChartColors = [
+    {borderColor: 'blue', fill: false},
+    {borderColor: 'red', fill: false},
+    {borderColor: 'black', fill: false},
+    {borderColor: 'green', fill: false}
   ];
 
   lineChartType = 'line';
