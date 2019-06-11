@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {forEach} from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-shoot-statistics-chart',
@@ -15,7 +16,8 @@ export class ShootStatisticsChartComponent implements OnInit {
   lineChartLegend = 'Shoot Statistics';
   lineChartOptions = {
     responsive: true,
-    fill: false, elements: {
+    fill: false,
+    elements: {
       line: {
         tension: 0
       }
@@ -23,10 +25,10 @@ export class ShootStatisticsChartComponent implements OnInit {
   };
 
   lineChartData = [
-    { data: [60,20,30,52,90,60,50], label: 'Shoot' },
-    { data: [150,150,150,150,150,150,150], label: 'Delivered' },
-    { data: [510,510,501,510,510,510,510], label: 'Opened' },
-    { data: [250,520,502,520,250,520,250], label: 'Clicked' }
+    { data: [], label: 'Shoot' },
+    { data: [], label: 'Delivered' },
+    { data: [], label: 'Opened' },
+    { data: [], label: 'Clicked' }
   ];
 
   lineChartColors = [
@@ -47,21 +49,30 @@ export class ShootStatisticsChartComponent implements OnInit {
 
   ngOnInit() {
     this.getShootStatisticsDates();
-    console.log(this.availableDates);
-    // this.getShootStatisticsDates();
-    // this.getStatisticsByDate(this.lineChartLabels[0]);
   }
 
   getShootStatisticsDates() {
     return this.http.get('http://127.0.0.1:8000/api/shootstatisticsdates').subscribe(ssDates => {
     this.lineChartLabels = ssDates['success'];
     this.availableDates = ssDates['success'];
+    console.log(this.availableDates);
+    let i = 0;
+    for (i = 0; i < this.availableDates.length; i++)
+    {
+      console.log(this.availableDates[i]);
+      this.getStatisticsByDate(this.availableDates[i]);
+
+    }
     });
   }
 
   getStatisticsByDate(date) {
-    return this.http.get('http://127.0.0.1:8000/api/shootstatisticsbydate/' + date).subscribe(ssDates => {this.statByDate = ssDates['success'];
-    // console.log(ssDates['success']);
+    return this.http.get('http://127.0.0.1:8000/api/shootstatisticsbydate/' + date).subscribe(ssDates => {
+      this.statByDate = ssDates['success'];
+      this.lineChartData[0]['data'].push(this.statByDate[0]["shooted_volume"]);
+      this.lineChartData[1]['data'].push(this.statByDate[0]["delivered_volume"]);
+      this.lineChartData[2]['data'].push(this.statByDate[0]["opener"]);
+      this.lineChartData[3]['data'].push(this.statByDate[0]["clicker"]);
     });
   }
 
