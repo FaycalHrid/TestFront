@@ -55,13 +55,11 @@ export class ShootStatisticsChartComponent implements OnInit {
     return this.http.get('http://127.0.0.1:8000/api/shootstatisticsdates').subscribe(ssDates => {
     this.lineChartLabels = ssDates['success'];
     this.availableDates = ssDates['success'];
-    console.log(this.availableDates);
+    this.availableDates.reverse();
     let i = 0;
     for (i = 0; i < this.availableDates.length; i++)
     {
-      console.log(this.availableDates[i]);
       this.getStatisticsByDate(this.availableDates[i]);
-
     }
     });
   }
