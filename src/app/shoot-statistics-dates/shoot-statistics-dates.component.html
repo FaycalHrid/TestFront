@@ -29,11 +29,11 @@
           <td>{{ ssDD.email_name }}</td>
           <td>{{ ssDD.shooted_volume }}</td>
           <td>{{ ssDD.delivered_volume }}</td>
-          <td>{{ ssDD.delivered_volume/ssDD.shooted_volume*100 }}%</td>
+          <td>{{ calculatePercentage(ssDD.delivered_volume,ssDD.shooted_volume) }}%</td>
           <td>{{ ssDD.opener }}</td>
-          <td>{{ ssDD.opener/ssDD.delivered_volume*100 }}</td>
+          <td>{{ calculatePercentage(ssDD.opener,ssDD.delivered_volume) }}%</td>
           <td>{{ ssDD.clicker }}</td>
-          <td>{{ ssDD.clicker/ssDD.opener*100 }}</td>
+          <td>{{ calculatePercentage(ssDD.clicker, ssDD.opener) }}%</td>
         </tr>
         </tbody>
       </table>

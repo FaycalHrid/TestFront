@@ -37,4 +37,14 @@ export class ShootStatisticsDatesComponent implements OnInit {
     });
   }
 
+  calculatePercentage(n1,n2)
+  {
+    if(n1 === 0 || n2 === 0)
+    {
+      return 0;
+    }
+    var n = n1 / n2 * 100;
+    return parseFloat(n.toString()).toFixed(2);
+  }
+
 }
