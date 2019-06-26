@@ -20,6 +20,11 @@
           <th>Openers %</th>
           <th>Clickers</th>
           <th>Clickers %</th>
+          <th>Unsubscribed</th>
+          <th>Complaint</th>
+          <th>Bounced</th>
+          <th>Bounce Details</th>
+
         </tr>
         </thead>
         <tbody>
@@ -34,6 +39,10 @@
           <td>{{ calculatePercentage(ssDD.opener,ssDD.delivered_volume) }}%</td>
           <td>{{ ssDD.clicker }}</td>
           <td>{{ calculatePercentage(ssDD.clicker, ssDD.opener) }}%</td>
+          <td>{{ ssDD.unsubscriber }}</td>
+          <td>{{ ssDD.complaint }}</td>
+          <td>{{ ssDD.bounced }}</td>
+          <td>{{ ssDD.bouncedetails }}</td>
         </tr>
         </tbody>
       </table>

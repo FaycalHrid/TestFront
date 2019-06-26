@@ -7,6 +7,8 @@ import { EETransactionStatusComponent } from './eetransaction-status/eetransacti
 import { ShootStatisticsDatesComponent } from './shoot-statistics-dates/shoot-statistics-dates.component';
 import {ChartsModule} from 'ng2-charts';
 import { ShootStatisticsChartComponent } from './shoot-statistics-chart/shoot-statistics-chart.component';
+import { BounceDetailsModalsComponent } from './bounce-details-modals/bounce-details-modals.component';
+import { PopoverAutocloseComponent } from './popover-autoclose/popover-autoclose.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import { ShootStatisticsChartComponent } from './shoot-statistics-chart/shoot-st
     EETransactionStatusComponent,
     ShootStatisticsDatesComponent,
     ShootStatisticsChartComponent,
+    BounceDetailsModalsComponent,
+    PopoverAutocloseComponent,
   ],
   imports: [
     BrowserModule,

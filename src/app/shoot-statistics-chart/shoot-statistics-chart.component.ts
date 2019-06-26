@@ -21,6 +21,10 @@ export class ShootStatisticsChartComponent implements OnInit {
       line: {
         tension: 0
       }
+    },
+    zoom: {
+      enabled: true,
+      mode: 'x'
     }
   };
 
