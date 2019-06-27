@@ -48,18 +48,18 @@ export class ShootStatisticsChartComponent implements OnInit {
 
 
   constructor(private http: HttpClient) {
+    this.getShootStatisticsDates();
 
   }
 
   ngOnInit() {
-    this.getShootStatisticsDates();
   }
 
   getShootStatisticsDates() {
     return this.http.get('http://127.0.0.1:8000/api/shootstatisticsdates').subscribe(ssDates => {
+      ssDates['success'].reverse();
     this.lineChartLabels = ssDates['success'];
     this.availableDates = ssDates['success'];
-    this.availableDates.reverse();
     let i = 0;
     for (i = 0; i < this.availableDates.length; i++)
     {

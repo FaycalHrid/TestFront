@@ -12,9 +12,8 @@ export class ShootStatisticsDatesComponent implements OnInit {
   // dates: any;
   ssDates: any;
   ssDateDetails: any;
-
+  unsubscribeDetails: any;
   constructor(private http: HttpClient) {
-    // this.getTransactions();
     this.getShootStatisticsDates();
   }
 
@@ -32,8 +31,24 @@ export class ShootStatisticsDatesComponent implements OnInit {
 
   getDateStatistics(date)
   {
-    return this.http.get('http://127.0.0.1:8000/api/shootstatisticsdates/' + date).subscribe(ssDateDetails => {
+    this.http.get('http://127.0.0.1:8000/api/shootstatisticsdates/' + date).subscribe(ssDateDetails => {
       this.ssDateDetails = ssDateDetails['success'];
+    });
+    this.getDateUnsubStatistics(date);
+  }
+
+  getDateUnsubStatistics(date)
+  {
+    return this.http.get('http://127.0.0.1:8000/api/unsubcount/'+date).subscribe(unsubscribeDetails => {
+      let i = 0;
+      // for(i=0;i<unsubscribeDetails['success'][0].length; i++)
+      // {
+        this.unsubscribeDetails = JSON.stringify(unsubscribeDetails['success'][0]);
+      //   console.log(unsubscribeDetails['success'][0]);
+      // }
+      // console.log(this.unsubscribeDetails);
+      // console.log(unsubscribeDetails['success'][0]);
+      // console.log(JSON.stringify(unsubscribeDetails['success'][0]));
     });
   }
 

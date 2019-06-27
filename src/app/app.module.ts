@@ -9,6 +9,7 @@ import {ChartsModule} from 'ng2-charts';
 import { ShootStatisticsChartComponent } from './shoot-statistics-chart/shoot-statistics-chart.component';
 import { BounceDetailsModalsComponent } from './bounce-details-modals/bounce-details-modals.component';
 import { PopoverAutocloseComponent } from './popover-autoclose/popover-autoclose.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { PopoverAutocloseComponent } from './popover-autoclose/popover-autoclose
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgbModule,
     ChartsModule
   ],
   providers: [],
