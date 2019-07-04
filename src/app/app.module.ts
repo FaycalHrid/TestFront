@@ -10,6 +10,9 @@ import { ShootStatisticsChartComponent } from './shoot-statistics-chart/shoot-st
 import { BounceDetailsModalsComponent } from './bounce-details-modals/bounce-details-modals.component';
 import { PopoverAutocloseComponent } from './popover-autoclose/popover-autoclose.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { MatTableModule } from '@angular/material';
+import {CdkColumnDef} from '@angular/cdk/table';
 
 @NgModule({
   declarations: [
@@ -25,9 +28,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    ChartsModule
+    ChartsModule,
+    NgxPaginationModule,
+    MatTableModule
   ],
-  providers: [],
+  providers: [CdkColumnDef],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

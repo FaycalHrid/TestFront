@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {forEach} from '@angular/router/src/utils/collection';
+import { MatTableModule } from '@angular/material';
 
 @Component({
   selector: 'app-shoot-statistics-dates',
@@ -13,6 +14,10 @@ export class ShootStatisticsDatesComponent implements OnInit {
   ssDates: any;
   ssDateDetails: any;
   unsubscribeDetails: any;
+
+  pagenumber: number = 1;
+
+
   constructor(private http: HttpClient) {
     this.getShootStatisticsDates();
   }
@@ -31,6 +36,7 @@ export class ShootStatisticsDatesComponent implements OnInit {
 
   getDateStatistics(date)
   {
+    this.pagenumber = 1;
     this.http.get('http://127.0.0.1:8000/api/shootstatisticsdates/' + date).subscribe(ssDateDetails => {
       this.ssDateDetails = ssDateDetails['success'];
     });
@@ -43,7 +49,7 @@ export class ShootStatisticsDatesComponent implements OnInit {
       let i = 0;
       // for(i=0;i<unsubscribeDetails['success'][0].length; i++)
       // {
-        this.unsubscribeDetails = JSON.stringify(unsubscribeDetails['success'][0]);
+      this.unsubscribeDetails = JSON.stringify(unsubscribeDetails['success'][0]);
       //   console.log(unsubscribeDetails['success'][0]);
       // }
       // console.log(this.unsubscribeDetails);
